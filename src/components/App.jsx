@@ -14,7 +14,7 @@ export function App() {
         <main className="max-w-340">
 
             <Search onSearch={setCity} />
-            <div className="flex flex-row w-full md:flex-row">
+            <div className="flex flex-col w-full md:flex-row">
                 <Weather city={city} />
                 <Details city={city} />
 

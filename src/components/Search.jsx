@@ -19,7 +19,7 @@ export function Search({ onSearch }) {
                 <input
                     type="text"
                     placeholder="Search location..."
-                    className="border border-gray-200 bg-white rounded-full text-black m-5 pl-5 w-full h-12"
+                    className="border border-gray-200 bg-white rounded-full w-104 text-black m-5 pl-5 md:w-full h-12"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                     onKeyDown={(e) => {

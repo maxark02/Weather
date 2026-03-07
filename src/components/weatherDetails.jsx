@@ -1,78 +1,92 @@
 import {useForecast} from "../hooks/forecast";
+import { useWeather } from "../hooks/useWeather";
 
 
 export function Details({ city }) {
     const { forecast, loading } = useForecast(city)
+    const { weather } = useWeather(city)
 
     if (loading && !forecast) return null
+
+    const formatTime = (unix) => {
+        return new Date(unix * 1000).toLocaleTimeString('en-US', {
+            hour: '2-digit',
+            minute: '2-digit'
+        })
+    }
+
     return (
 
         <>
-            <div className="flex flex-col max-w-114 rounded-3xl border-gray-200 h-full shadow-md pb-10 pr-5 gap-2
+            <div className="flex flex-col w-90 ml-5 rounded-3xl border-gray-200 h-full shadow-md pb-10 pr-5 gap-4
             md:w-114 ">
                 <h2 className="text-xl p-5 ">
                    Weather Details
                 </h2>
-                <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                <div className="flex flex-row text-sm justify-between px-4  ">
                     <p>
                         Pressure
                     </p>
-                    <p className="text-sm text-red-500">
-                        {forecast?.list?.wind_speed}
+                    <p className="text-sm fade-in">
+                        {forecast?.list?.[0]?.main?.pressure}
                     </p>
                 </div>
-                <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                <div className="flex flex-row text-sm justify-between px-4 ">
 
                 <p>
                         Visibility
                     </p>
-                    <p>
+                    <p className="text-sm fade-in">
+                        {forecast?.list?.[0]?.visibility / 1000} km
 
                     </p>
                 </div>
-                <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                <div className="flex flex-row text-sm justify-between px-4  ">
 
                 <p>
                         Wind Speed
                 </p>
-                    <p>
+                    <p className="text-sm fade-in">
+                        {forecast?.list?.[0]?.wind?.speed} m/s
 
                     </p>
                 </div>
-                <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                <div className="flex flex-row text-sm justify-between px-4  ">
 
                 <p>
                         Humidity
                     </p>
-                    <p>
+                    <p className="text-sm fade-in">
+                        {forecast?.list?.[0]?.main?.humidity}%
 
                     </p>
                 </div>
-                    <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                    <div className="flex flex-row text-sm justify-between px-4  ">
 
                     <p>
 
                         Sunrise
                     </p>
-                    <p>
+                        <p className="text-sm fade-in">
+                        {formatTime(weather?.sys?.sunrise)}
+
 
                     </p>
                     </div>
-                    <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                    <div className="flex flex-row text-sm justify-between px-4 ">
 
                     <p>
                         Sunset
                     </p>
-                    <p>
+                        <p className="text-sm fade-in">
+                        {formatTime(weather?.sys?.sunset)}
 
                     </p>
                 </div>
 
-                <div className="flex flex-col w-screen gap-3 mx-5 text-sm ">
+                <div className="flex flex-row text-sm justify-between px-4 ">
 
-                <h6>
-                        UV Index
-                    </h6>
+
                 </div>
 
 
