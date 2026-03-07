@@ -15,7 +15,7 @@ export function Hourly({city}) {
     return (
         <>
             <div className="flex flex-col mx-5 h-45 rounded-3xl border-gray-200 mt-5 shadow-md
-            md:w-180 md:ml-11">
+            md:w-200 md:ml-11">
                 <h2 className=" text-xl p-5 ">
                     Hourly forecast
                 </h2>

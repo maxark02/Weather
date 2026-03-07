@@ -15,9 +15,9 @@ export function Weather( { city }) {
 
     return (
         <>
-    <div className="flex items-center flex-wrap pb-3 mx-5 h-90 border border-gray-200 rounded-3xl
+    <div className="flex items-center flex-wrap max-w-200 pb-3 mx-5 h-90 border border-gray-200 rounded-3xl
     shadow-md flex-direction-column
-    md:w-180 md:ml-11
+    md:w-200 md:ml-11
     ">
     <div className="flex items-center justify-center w-full h-20  pt-10 m-0 text-3xl font-bold">
         <h2 className="text-center fade-in">{weather?.name}</h2>

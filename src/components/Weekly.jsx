@@ -16,8 +16,8 @@ export function Weekly({ city }) {
     return (
 
         <>
-            <div className="flex flex-col mx-5  rounded-3xl border-gray-200 mt-5 shadow-md pb-10
-            md:w-180 md:ml-11">
+            <div className="flex flex-col mx-5  rounded-3xl border-gray-200 mt-5 shadow-md pb-10 h-full
+            md:w-200 md:ml-11">
                 <h2 className="text-xl p-5">
                     7-Day Forecast
                 </h2>
