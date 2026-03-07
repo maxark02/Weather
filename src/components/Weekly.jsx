@@ -1,8 +1,18 @@
 'use client'
 
 import Image from 'next/image'
+import { useForecast } from '../hooks/forecast.js'
 
-export function Weekly() {
+export function Weekly({ city }) {
+    const getDayName = (dateStr) => {
+        const date = new Date(dateStr)  // маленькая n в new
+        return date.toLocaleDateString('en-US', { weekday: 'short' })
+    }
+
+    const { forecast, loading } = useForecast(city)
+
+    if (loading && !forecast) return null
+
     return (
 
         <>
@@ -12,14 +22,15 @@ export function Weekly() {
                     7-Day Forecast
                 </h2>
                 <div className="flex flex-col mx-5 h-full rounded-3xl gap-5">
-                    <h3 className="w-full ">mon</h3>
-                    <h3 className="w-full ">tue</h3>
-                    <h3 className="w-full ">wed</h3>
-                    <h3 className="w-full ">thu</h3>
-                    <h3 className="w-full ">fri</h3>
-                    <h3 className="w-full ">sat</h3>
-                    <h3 className="w-full ">sun</h3>
+                    {forecast?.list
+                        ?.filter(item => item.dt_txt.includes('12:00:00')).map((item, index) => (
+                        <div key={index} className="flex justify-between items-center">
+                            <p>{getDayName(item.dt_txt)}</p>
+                            <p>{Math.round(item.main.temp)}°</p>
 
+                        </div>
+
+                        ) )}
                 </div>
 
             </div>
