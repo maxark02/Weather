@@ -5,6 +5,7 @@ import { Search } from './Search'
 import { Weather } from './Weather'
 import { Hourly } from './Hourly'
 import {Weekly} from "./Weekly";
+import {c} from "react/compiler-runtime";
 
 export function App() {
     const [city, setCity] = useState('seoul')
@@ -14,8 +15,7 @@ export function App() {
             <Search onSearch={setCity} />
             <Weather city={city} />
             <Hourly city={city} />
-            <Weekly>
-            </Weekly>
+            <Weekly city={city} />
 
 
         </main>
