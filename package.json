@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:storybook": "node ./scripts/storybook.js",
     "test:unit": "react-scripts test",
     "test:e2e": "node ./scripts/e2e.test.js",
     "start": "next start",
