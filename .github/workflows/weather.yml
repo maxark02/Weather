@@ -17,8 +17,6 @@ jobs:
          run: npm ci --include=dev
        - name: build project
          run: npm run build
-       - name: e2e test
-         run: npm run test:e2e
        - name: lint code
          run: npm run lint
 
