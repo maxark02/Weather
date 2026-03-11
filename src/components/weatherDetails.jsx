@@ -1,3 +1,5 @@
+'use client'
+
 import {useForecast} from "../hooks/forecast";
 import { useWeather } from "../hooks/useWeather";
 
@@ -18,8 +20,9 @@ export function Details({ city }) {
     return (
 
         <>
-            <div className="flex flex-col w-90 ml-5 rounded-3xl border-gray-200 h-full shadow-md pb-10 pr-5 gap-4
-            md:w-114 ">
+            <div className="flex flex-col flex-nowrap w-[90%] mx-auto   rounded-3xl border border-gray-200 h-full shadow-md pb-1 gap-4
+                    md:w-full
+                ">
                 <h2 className="text-xl p-5 ">
                    Weather Details
                 </h2>

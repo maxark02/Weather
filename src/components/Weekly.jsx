@@ -16,7 +16,7 @@ export function Weekly({ city }) {
     return (
 
         <>
-            <div className="flex flex-col mx-5  rounded-3xl border-gray-200 mt-5 shadow-md pb-10 h-full
+            <div className="flex flex-col mx-5  rounded-3xl border-gray-200 mt-5 shadow-md pb-10 mb-5 h-full
             md:w-200 md:ml-11">
                 <h2 className="text-xl p-5">
                     7-Day Forecast
@@ -26,7 +26,22 @@ export function Weekly({ city }) {
                         ?.filter(item => item.dt_txt.includes('12:00:00')).map((item, index) => (
                         <div key={index} className="flex justify-between items-center">
                             <p>{getDayName(item.dt_txt)}</p>
-                            <p>{Math.round(item.main.temp)}°</p>
+
+                            <div className="flex flex-row gap-5">
+
+                                <Image src={`https://openweathermap.org/img/wn/${item?.weather?.[0]?.icon}@2x.png`}
+                                       alt=""
+                                       width={30}
+                                       height={30}
+                                       className=""
+                                />
+
+                                <p>{Math.round(item.main?.temp_min)}°</p>
+
+                                <p>{Math.round(item.main?.temp_max)}°</p>
+                            </div>
+
+
 
                         </div>
 

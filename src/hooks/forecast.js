@@ -6,13 +6,17 @@ export function useForecast(city) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        setLoading(true);
-        fetchForecast(city)
-            .then(data => {
-                console.log(data)
+        const load = async () => {
+            setLoading(true);        // ок — внутри функции
+            try {
+                const data = await fetchForecast(city);
                 setForecast(data);
+            } finally {
                 setLoading(false);
-            })
-    },[city])
+            }
+        };
+
+        load();
+    }, [city]);
     return {forecast, loading}
 }

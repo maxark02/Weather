@@ -28,11 +28,11 @@ export function Hourly({city}) {
                                 <div className="flex flex-col items-center w-10 ">
 
 
-                                    <Image src="/assets/cloud.png"
+                                    <Image src={`https://openweathermap.org/img/wn/${item?.weather?.[0]?.icon}@2x.png`}
                                            alt=""
                                            width={30}
                                            height={30}
-                                           className=""
+                                           className="h-full w-full"
                                     />
 
                                 </div>

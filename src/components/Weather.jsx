@@ -1,14 +1,14 @@
 'use client'
 
-import { useWeather } from '../hooks/useWeather.js'
 import Image from 'next/image.js';
+import { useWeather } from '../hooks/useWeather.js'
 
 
 
 export function Weather( { city }) {
-    const { weather, forecast, loading } = useWeather(city)
+    const { weather, loading } = useWeather(city)
 
-    if (loading && !weather) return <p className="flex justify-center m-auto mt-70 ">Loading...</p>
+        if (loading && !weather) return <p className="flex  w-screen h-screen items-center justify-center  ">Loading...</p>
 
     if (weather.error) return <p className="flex h-screen items-center justify-center ">City not found</p>
 
@@ -39,7 +39,9 @@ export function Weather( { city }) {
             <div className="flex items-center flex-col w-30 h-20  m-0 text-3xl  ">
                 <Image src="/assets/windy.png" alt="" width={100} height={100} className="w-8" />
                 <p className="text-xs ">Wind</p>
-                <p className="text-xs fade-in">10 km/h</p>
+                <p className="text-xs fade-in">
+                    {weather?.wind?.speed} m/s
+                </p>
             </div>
 
             <div className="flex items-center flex-col w-30 h-20  m-0 text-3xl  ">
